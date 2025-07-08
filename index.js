@@ -1,4 +1,4 @@
-import {menuArray} from "/data"
+import {menuArray} from "/data.js"
 
 const paymentFormEl = document.getElementById("payment-form")
 
