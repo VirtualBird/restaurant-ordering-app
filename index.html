@@ -1,0 +1,81 @@
+<html>
+    <head>
+       <link rel="stylesheet" href="index.css">
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Smythe&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header class="light-text">
+            <div class="container"> 
+                <h1>Jimmy's Diner</h1>
+                <p>The Best Burgers and pizzas in town.</p>
+            </div>
+        </header>
+        <main id="main">
+            <div id="menu" class="container">
+                <ul id="menu-list" class="menu-list container-inner">
+                </ul>
+            </div>
+            <div id="checkout" class="container hidden">
+                <div id="checkout-inner" class="container-inner">
+                    <h2 class="your-order">Your Order</h2>
+                    <ul id="checkout-list" class="checkout-list">
+                    </ul>
+                    <h2 id="total-price" class="total-price">Total Price: <span class="price total">$</span></h2>
+                    <button id="complete-order-btn" class="complete-order-btn green-btn">Complete Order</button>
+                </div>
+            </div>
+            <div id="complete-order" class="container">
+            </div>
+        </main>
+            <div class="payment-modal hidden" id="payment-modal">
+                <form id="payment-form" class="payment-modal-container">
+                    <p class="payment-title">Enter card details</p>
+                    <input 
+                        required
+                        type="text" 
+                        id="user-name" 
+                        name="user-name" 
+                        placeholder="Enter your name"
+                        >
+                        <!-- 
+                            pattern="[0-9]" means only 1 digit
+                            pattern="[0-9]+" means 1 or more digits
+                            
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                            
+                            as the user types
+                            [^0-9] means not 0-9
+                            g is a flag that replaces all occurences (instead of only 1 occurence by default)
+                            replaces non-digit characters with ''
+                            
+                            '/'s are a RegExp (regular expression literal)
+                            they mark the beginning and end of a regular expression
+                         -->
+                    <input 
+                        required
+                        type="text" 
+                        id="user-card-number" 
+                        name="user-card-number" 
+                        placeholder="Enter card number"
+                        pattern="[0-9]+"
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                        >
+                    <input 
+                        required
+                        type="text" 
+                        id="user-cvv" 
+                        name="user-cvv" 
+                        placeholder="Enter CVV"
+                        pattern="[0-9]+"
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                        >
+                    <button type="submit" id="purchase-btn" class="purchase-btn green-btn">Pay</button>
+                </form>
+            </div>
+        <footer></footer>
+	<script src="index.js" type="module"></script>
+    </body>
+</html>
+
